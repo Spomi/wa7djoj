@@ -172,7 +172,7 @@ client.on('message', function(msg) {
   });
 
 client.on("message", async function(message)  {
-let voiceMembers = message.guild.channels.get('459685168328867840');
+let voiceMembers = message.guild.channels.get('471494146880700436');
 if(message.content.startsWith(prefix + "voice")) {
     voiceMembers.sendMessage(`**الاعضاء المتواجدون حاليا : ${message.guild.members.filter(member => member.voiceChannel).size}**`);
     voiceMembers.sendMessage('```\n'+message.guild.members.filter(member => member.voiceChannel).map(m => m.user.tag).join('\n') + '```');
