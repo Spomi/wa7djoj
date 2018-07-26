@@ -563,7 +563,6 @@ client.on('message', msg => {
     const embed = new Discord.RichEmbed()
     .addField("**السؤال**: ",`**${question}**`, true)
     .addField("**الناتج**: ",`**${answer}**`, true)
-    .setFooter("S Bot حاسبه")
     msg.channel.send(embed)
     }
 };
