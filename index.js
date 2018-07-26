@@ -272,7 +272,7 @@ client.on('message', message => {
 client.on('message', message => {
   if (true) {
 if (message.content === '+invite') {
-      message.author.send('https://discordapp.com/api/oauth2/authorize?client_id=458751694516256769&permissions=8&scope=bot').catch(e => console.log(e.stack));
+      message.author.send('https://discordapp.com/api/oauth2/authorize?client_id=471736041091629056&permissions=8&scope=bot').catch(e => console.log(e.stack));
 
     }
    } 
