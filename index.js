@@ -121,9 +121,12 @@ client.on("message", message => {
 
 تحذير :البوت يمتلك لوق يعمل في روم يسمى log
 البوت يقوم بطرد من ينشر سيرفر تحذير`)
-     For add Bot : لدعوت البوت 
      
-https://discordapp.com/oauth2/authorize?client_id=471736041091629056&permissions=8&scope=bot
+    . For. add .Bot : .لدعوت.البوت.
+     
+ . https://discordapp.com/oauth2/authorize?client_id=471736041091629056&permissions=8&scope=bot
+ 
+ 
 
    message.author.sendEmbed(embed)
    
@@ -613,7 +616,7 @@ if (!message.content.startsWith(prefix)) return;
 let command = message.content.split(" ")[0];
 command = command.slice(prefix.length);
 let args = message.content.split(" ").slice(1);
-if (command == "Mute") {
+if (command == "mute") {
 if (!message.channel.guild) return;
 if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انت لا تملك صلاحيات !! ").then(msg => msg.delete(5000));
 if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
@@ -644,7 +647,7 @@ ${user} انت معاقب بميوت كتابي بسبب مخالفة القوا
 .setColor("RANDOM")
  user.send( muteembeddm);
 }
-if (command == "UnMute") {
+if (command == "unmute") {
 if (!message.channel.guild) return;
 if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انتا لا تملك صلاحيات").then(msg => msg.delete(5000));
 if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
