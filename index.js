@@ -31,53 +31,93 @@ client.on("message", message => {
          .setThumbnail(message.author.avatarURL)
          .setDescription(`
 ('+avatar ' , 'كود الافاتار ') 
+
 ('+roll ' , 'كود القرعة ') 
+
 ('+id ' , 'لعرض معلوماتك') 
+
 ('+server' , 'لمعلومات سيرفر') 
+
 ('رابط السيرفر الي تكتب الاوامر بيه' ,' رابط  ')
+
 ('+invite   ' ,' لاضافه البوت   ')
+
 ('+roles' ,'لاضهار رتب  سيرفر بالترتيب')
-('+infobot ' ,'معلومات البوت')
+
 ('+bc ' , 'لارسال رساله جماعية')
+
 ('+v2min ' , 'لانشاء روم مؤقت بتأكيد')
+
 ('+ping ' , 'سرعه بوت')
+
 ('+vc ' , 'كيك فويس')
+
 ('removeRoles+1 ' , 'لحذف جميع رتب')
+
 ('+invites ' , 'لمعرفه عدد الاعضاء الذي دخلوا عبرك')
+
 ('+mutechannel ' , 'لقفل الشات')
+
 ('+unmutechannel ' , 'لفتح الشات')
+
 ('+rooms ' , 'لاضهار الرومات')
-('+calculator ' , 'الالة الحسابية')
+
+('+clc ' , 'الالة الحسابية')
+
 ('+serverimage ' , 'لاضهار صوره السيرفر')
+
 ('+image ' , 'لاضهار صورتك')
+
 ('roleadd ' , 'لاعطاء رتبه')
+
 ('+roleremove ' , 'لازاله الرتبه')
+
 ('+nickname ' , 'لتغير اسم العضو')
+
 ('+Mute ' , 'لاعطاء ميوت شات مع سبب')
+
 ('UnMute ' , 'لفك ميوت شات')
+
 ('+clear ' , 'لمسح الشات حد اقصى 200رساله') 
+
 ('+seroles' , 'انشاء رتب جاهزه')
+
 ('+removerooms' , 'لازالة جميع الرومات')
+
 ('+createcolors' , 'لانشاء 137 الوان')
+
 ('+deletecolors' , 'لحذف جميع الوان')
+
 ('+bcc ' , 'لارسال رساله جماعية')
+
 ('+watch ' , 'اسم البوت')
+
 ('+hide' , 'لاخفاء جميع رومات في سسيرفر')
-     ('اوامر صاحب البوت')
+     
 ('prefix ', '+')
 
 ('+removeroles' , 'لحذف جميع رتب')
+
 ('+unhide' , 'لفتح جميع رومات')
+
 ('+ban' , 'لاعطاء باند')
+
 ('+unbans' , 'لفك باند عن جميع')
+
 ('لاتخيار الوان الذي تريده' , 'لون')
+
 ('+e' , 'You must provide some text to emojify!')
+
 ('+data' , 'التاريخ : " + اليوم + "-" + الشهر + "-" +السنة')
+
 ('+rps' , 'حجرة','ورقة','مقص')
-('قوانين' , '')
+
 ('+voice' , 'كود الفويس اونلاين بشكل حلو')
+
 ('خواطر' , '')
+
 ('+color' , '')
+
 
 تحذير :البوت يمتلك لوق يعمل في روم يسمى log
 البوت يقوم بطرد من ينشر سيرفر تحذير`)
@@ -195,7 +235,7 @@ channel.send({embed : embed});
 });
 
 client.on("guildMemberAdd", function(member) {
-    const wc = member.guild.channels.find("name", "member-log")
+    const wc = member.guild.channels.find("name", "welcome")
         const embed = new Discord.RichEmbed()
         .setColor('B90C0C')
         .setAuthor(member.user.tag, member.user.avatarURL)
@@ -476,7 +516,76 @@ return;
 
 
 
+client.on('message', function(message) {
+    if(message.content.startsWith(prefix + 'roll')) {
+        let args = message.content.split(" ").slice(1);
+        if (!args[0]) {
+            message.channel.send('**حط رقم معين يتم السحب منه**');
+            return;
+            }
+    message.channel.send(Math.floor(Math.random() * args.join(' ')));
+            if (!args[0]) {
+          message.edit('1')
+          return;
+        }
+    }
+});
 
+client.on('message', message => {
+    if (message.content === "+rooms") {
+        if (message.author.bot) return
+                      if (!message.guild) return;
+
+        var channels = message.guild.channels.map(channels => `${channels.name}, `).join(' ')
+        const embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .addField(`${message.guild.name}`,`**الرومات✅**`)
+        .addField('⬇ عدد الرومات. ✔',`** ${message.guild.channels.size}**`)
+        
+.addField('⬇اسماء الرومات. ✔:',`**[${channels}]**`)
+        message.channel.sendEmbed(embed);
+    }
+});
+client.on('message', msg => {
+	const prefix = '+'
+ if (msg.content.startsWith(prefix + 'clc')) {
+    let args = msg.content.split(" ").slice(1);
+        const question = args.join(' ');
+    if (args.length < 1) {
+        msg.reply('Specify a equation, please.');
+} else {    let answer;
+    try {
+        answer = math.eval(question);
+    } catch (err) {
+        msg.reply(`Error: ${err}`);
+    }
+
+    const embed = new Discord.RichEmbed()
+    .addField("**السؤال**: ",`**${question}**`, true)
+    .addField("**الناتج**: ",`**${answer}**`, true)
+    .setFooter("S Bot حاسبه")
+    msg.channel.send(embed)
+    }
+};
+});	
+
+client.on("message", message => {             
+  const prefix = '+'
+          if(!message.channel.guild) return;
+   if(message.author.bot) return;
+      if(message.content === prefix + "serveravatar"){ 
+          const embed = new Discord.RichEmbed()
+  
+      .setTitle(`This is  ** ${message.guild.name} **  Photo !`)
+  .setAuthor(message.author.username, message.guild.iconrURL)
+    .setColor(0x164fe3)
+    .setImage(message.guild.iconURL)
+    .setURL(message.guild.iconrURL)
+                    .setTimestamp()
+
+   message.channel.send({embed});
+      }
+  });
 
 
 
