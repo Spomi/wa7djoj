@@ -277,6 +277,197 @@ if (message.content === '+invite') {
     }
    } 
   });
+client.on('message', message => {
+     if (message.content === "+invite") {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#9B59B6")
+  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
+     
+     
+     
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message =>{
+    if (message.author.bot) return;
+    if(message.content == "+roles"){
+        var roles = '',
+        ros=message.guild.roles.size,
+        role = [];
+        for(let i =0;i<ros;i++){
+            if(message.guild.roles.array()[i].id !== message.guild.id){
+  role.push(message.guild.roles.filter(r => r.position == ros-i).map(r => `${i}- ${r.name}`));  
+        }}
+        message.channel.send(role.join("\n"));
+    }
+});
+
+client.on('message', message => {
+    if (message.content.startsWith("+infobot")) {
+      message.channel.send({
+ embed: new Discord.RichEmbed() 
+    .setColor('RED')
+    .addField('**الذاكرة المستخدمة 💾**', `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
+         .addField('**سرعة الاتصال📡**' , `${Date.now() - message.createdTimestamp}` + ' ms')
+        .addField('**وقت الاقلاع⌚**', timeCon(process.uptime()), true)
+        .addField('**استخدام المعالج💿**', `${(process.cpuUsage().rss / 10000).toFixed()}%`, true)
+     })
+    }
+  });
+
+
+client.on('message', message => {
+	const prefix = '+'
+    if (message.author.id === client.user.id) return;
+    if (message.guild) {
+   let embed = new Discord.RichEmbed()
+    let args = message.content.split(' ').slice(1).join(' ');
+if(message.content.split(' ')[0] == prefix + 'bc') {
+    if (!args[1]) {
+return;
+}
+        message.guild.members.forEach(m => {
+   if(!message.member.hasPermission('ADMINISTRATOR')) return;
+            var bc = new Discord.RichEmbed()
+            .addField(' » الرسالة : ', args)
+            .setColor('#ff0000')
+            // m.send(`[${m}]`);
+            m.send(`${m}`,{embed: bc});
+        });
+    }
+    } else {
+        return;
+    }
+});
+
+client.on('message', message => {
+                                if(!message.channel.guild) return;
+                        if (message.content.startsWith('+ping')) {
+                            if(!message.channel.guild) return;
+                            var msg = `${Date.now() - message.createdTimestamp}`
+                            var api = `${Math.round(client.ping)}`
+                            if (message.author.bot) return;
+                        let embed = new Discord.RichEmbed()
+                        .setAuthor(message.author.username,message.author.avatarURL)
+                        .setColor('RANDOM')
+                        .addField('**Time Taken:**',msg + " ms 📶 ")
+                        .addField('**WebSocket:**',api + " ms 📶 ")
+         message.channel.send({embed:embed});
+                        }
+                    });
+
+client.on("message", message => {
+    const command = message.content.split(" ")[0];
+
+    if(command == prefix+"vc"){
+
+        if (!message.guild.member(message.author).hasPermission('MOVE_MEMBERS') || !message.guild.member(message.author).hasPermission('ADMINISTRATOR')) {
+            return message.reply('you do not have permission to perform this action!');
+        }
+
+        var member = message.guild.members.get(message.mentions.users.array()[0].id);
+        if(!message.mentions.users){
+            message.reply("please mention the member")
+            return;
+        }
+
+    if(!member.voiceChannel){
+    message.reply("i can't include voice channel for member!")
+    return;
+    }
+              message.guild.createChannel('voicekick', 'voice').then(c => {
+                member.setVoiceChannel(c).then(() => {
+                    c.delete(305).catch(console.log)
+        
+
+
+    
+      });
+     });
+    }
+});
+
+client.on('message', message => {
+  if (message.content.startsWith ("+invites")) {
+   if(!message.channel.guild) return message.reply('** This command only for servers **');
+       var mentionned = message.mentions.users.first();
+      var os;
+    if(mentionned){
+        var os = mentionned.id;
+    } else {
+        var os = message.author.id;
+        
+    }
+        var oss;
+    if(mentionned){
+        var oss = mentionned;
+    } else {
+        var oss = message.author;
+        
+    }
+message.guild.fetchInvites()
+.then(invites =>{
+if(!invites.find(invite => invite.inviter.id === `${os}`)) return message.channel.send(`**${oss.username}, Does't Have Invites :x:**`);
+message.channel.send(`**__${invites.find(invite => invite.inviter.id === `${os}`).uses}__ Member Joined By ${oss.username} !** :chart_with_upwards_trend: `)
+
+})
+
+
+
+}
+
+
+});
+
+client.on("message", message =>{
+//if(message.author.id !== "368054396153757699") return;
+ var command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+   if(command == "+removeRoles"){
+       var user= message.mentions.users.first();
+       if(!user){
+           user = message.author;
+       }
+    message.guild.member(user).removeRoles(message.guild.member(user).roles)
+//      .then(console.log)
+      .catch(console.error);
+   message.channel.send(".. Removed");
+   }
+});
+
+
+client.on('message', message => {
+
+if (message.author.bot) return;
+    if (message.content === "+mutechannel") {
+                        if(!message.channel.guild) return message.reply(' This command only for servers');
+
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: false
+
+           }).then(() => {
+               message.reply("تم تقفيل الشات ✅ ")
+           });
+             }
+if (message.content === "+unmutechannel") {
+    if(!message.channel.guild) return message.reply(' This command only for servers');
+
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: true
+
+           }).then(() => {
+               message.reply("تم فتح الشات✅")
+           });
+             }
+
+
+
+});
 
 
 
