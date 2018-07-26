@@ -122,8 +122,6 @@ client.on("message", message => {
 تحذير :البوت يمتلك لوق يعمل في روم يسمى log
 البوت يقوم بطرد من ينشر سيرفر تحذير`)
      
-     
-     
    message.author.sendEmbed(embed)
    
    }
