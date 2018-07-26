@@ -447,7 +447,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('لي�
 });
 
 client.on('message', message => {
-var prefix = "$";
+var prefix = "+";
 
     if (message.author.id === client.user.id) return;
     if (message.guild) {
