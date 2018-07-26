@@ -211,7 +211,7 @@ client.on('message', function(msg) {
   });
 
 client.on("message", async function(message)  {
-let voiceMembers = message.guild.channels.get('471495215664857089');
+let voiceMembers = message.guild.channels.get('472108461422018580');
 if(message.content.startsWith(prefix + "voice")) {
     voiceMembers.sendMessage(`**الاعضاء المتواجدون حاليا : ${message.guild.members.filter(member => member.voiceChannel).size}**`);
     voiceMembers.sendMessage('```\n'+message.guild.members.filter(member => member.voiceChannel).map(m => m.user.tag).join('\n') + '```');
@@ -228,7 +228,7 @@ client.on('guildMemberAdd', member => {
     .setColor('GREEN')
     .setFooter('Golden Bot', 'https://cdn.discordapp.com/icons/390551815072251904/418fa2788d8115808951c9881ba8f190.jpg')
 
-var channel =member.guild.channels.find('name', 'wlc')
+var channel =member.guild.channels.find('name', 'welcome')
 if (!channel) return;
 channel.send({embed : embed});
 });
@@ -255,7 +255,7 @@ client.on('guildMemberRemove', member => {
     .setColor('RED')
     .setFooter(`The King Bot`, '')
 
-var channel =member.guild.channels.find('name', 'wlc')
+var channel =member.guild.channels.find('name', 'welcome')
 if (!channel) return;
 channel.send({embed : embed});
 });
