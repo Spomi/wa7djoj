@@ -64,7 +64,7 @@ client.on("message", message => {
 
 ('+clc ' , 'الالة الحسابية')
 
-('+serverimage ' , 'لاضهار صوره السيرفر')
+('+seravatar ' , 'لاضهار صوره السيرفر')
 
 ('+image ' , 'لاضهار صورتك')
 
@@ -572,7 +572,7 @@ client.on("message", message => {
   const prefix = '+'
           if(!message.channel.guild) return;
    if(message.author.bot) return;
-      if(message.content === prefix + "serveravatar"){ 
+      if(message.content === prefix + "seravatar"){ 
           const embed = new Discord.RichEmbed()
   
       .setTitle(`This is  ** ${message.guild.name} **  Photo !`)
