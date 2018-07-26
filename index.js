@@ -122,9 +122,9 @@ client.on("message", message => {
 تحذير :البوت يمتلك لوق يعمل في روم يسمى log
 البوت يقوم بطرد من ينشر سيرفر تحذير`)
      
-    . For. add .Bot : .لدعوت.البوت.
+     لدعوت البوت For adding bot
      
- . https://discordapp.com/oauth2/authorize?client_id=471736041091629056&permissions=8&scope=bot
+  https://discordapp.com/oauth2/authorize?client_id=471736041091629056&permissions=8&scope=bot
  
  
 
