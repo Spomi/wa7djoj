@@ -30,7 +30,7 @@ client.on("message", message => {
          .setColor("#580e6b")
          .setThumbnail(message.author.avatarURL)
          .setDescription(`
-('+avatar ' , 'كود الافاتار ') 
+('+avatar ' , 'كود صورتك ') 
 
 ('+roll ' , 'كود القرعة ') 
 
@@ -65,8 +65,6 @@ client.on("message", message => {
 ('+clc ' , 'الالة الحسابية')
 
 ('+seravatar ' , 'لاضهار صوره السيرفر')
-
-('+image ' , 'لاضهار صورتك')
 
 ('roleadd ' , 'لاعطاء رتبه')
 
