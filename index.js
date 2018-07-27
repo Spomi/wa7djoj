@@ -50,8 +50,6 @@ client.on("message", message => {
 
 ('+ping ' , 'سرعه بوت')
 
-('+vc ' , 'كيك فويس')
-
 ('removeRoles+1 ' , 'لحذف جميع رتب')
 
 ('+invites ' , 'لمعرفه عدد الاعضاء الذي دخلوا عبرك')
@@ -70,7 +68,7 @@ client.on("message", message => {
 
 ('+roleremove ' , 'لازاله الرتبه')
 
-('+nickname ' , 'لتغير اسم العضو')
+('+nick  ' , 'لتغير اسم البوت')
 
 ('+Mute ' , 'لاعطاء ميوت شات مع سبب')
 
@@ -85,8 +83,6 @@ client.on("message", message => {
 ('+createcolors' , 'لانشاء 137 الوان')
 
 ('+deletecolors' , 'لحذف جميع الوان')
-
-('+bcc ' , 'لارسال رساله جماعية')
 
 ('+watch ' , 'اسم البوت')
 
@@ -341,18 +337,6 @@ client.on('message', message =>{
     }
 });
 
-client.on('message', message => {
-    if (message.content.startsWith("+infobot")) {
-      message.channel.send({
- embed: new Discord.RichEmbed() 
-    .setColor('RED')
-    .addField('**الذاكرة المستخدمة 💾**', `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
-         .addField('**سرعة الاتصال📡**' , `${Date.now() - message.createdTimestamp}` + ' ms')
-        .addField('**وقت الاقلاع⌚**', timeCon(process.uptime()), true)
-        .addField('**استخدام المعالج💿**', `${(process.cpuUsage().rss / 10000).toFixed()}%`, true)
-     })
-    }
-  });
 
 
 
