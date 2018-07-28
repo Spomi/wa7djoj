@@ -1105,6 +1105,62 @@ client.on('message', message => {
 
 
 
+client.on('message' , async message => {
+         if(message.content.startsWith(prefix + "e")) {
+            let args = message.content.split(" ").slice(1);
+    if (args.length < 1) {
+      message.channel.send('You must provide some text to emojify!');
+  }
+  
+  message.channel.send(
+      args.join(' ')
+          .split('')
+          .map(c => codes[c] || c)
+          .join('')
+  );
+  };
+  });
+
+
+  
+    client.on('message', message => {
+        if (message.content === prefix + "data") {
+            if (!message.channel.guild) return message.reply('** This command only for servers **');  
+var currentTime = new Date(),
+            hours = currentTime.getHours() + 0 ,
+            minutes = currentTime.getMinutes(),
+            seconds = currentTime.getSeconds();
+            Year = currentTime.getFullYear(),
+            Month = currentTime.getMonth() + 1,
+            Day = currentTime.getDate();
+
+            if (minutes < 10) {
+                minutes = '0' + minutes;
+            }
+            var suffix = 'صباحاَ';
+            if (hours >= 12) {
+                suffix = 'مساء';
+                hours = hours - 12;
+            }
+            if (hours == 0) {
+                hours = 12;
+            }
+
+
+                var Date15= new Discord.RichEmbed()
+                .setThumbnail(message.author.avatarURL) 
+                .setTitle("**الوقت وتاريخ**")
+                .setColor('RANDOM')
+                .setTimestamp()
+                .addField('Time',
+                "『"+ hours + ":" + minutes + "』") 
+                .addField('Date',
+                "『"+ Day + "-" + Month + "-" + Year + "』")
+
+                 message.channel.sendEmbed(Date15);
+        }
+    });
+
 
 
 
