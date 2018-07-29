@@ -1167,7 +1167,7 @@ var currentTime = new Date(),
 client.on('message', msg => {
     if(msg.author.bot) return;
     
-    if(msg.content === '!sr') {
+    if(msg.content === '+seruse') {
       client.guilds.forEach(g => {
         
         let l = g.id
