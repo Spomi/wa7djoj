@@ -4,21 +4,6 @@ const client = new Discord.Client();
 const prefix = '+'
 
 
-client.on('guildMemberAdd', member => {
-    const botCount = member.guild.members.filter(m=>m.user.bot).size
-    const memberCount = [member.guild.memberCount] - [botCount]
-    client.channels.get('473656954581942292').setName(`⟫『 ${memberCount} USERS 』⟪`);
-    client.channels.get('473677401147179018').setName(`⟫『 ${botCount} THE BOT 』⟪`);
-});
-
-client.on('guildMemberRemove', member => {
-    const botCount = member.guild.members.filter(m=>m.user.bot).size
-    const memberCount = [member.guild.memberCount] - [botCount]
-    client.channels.get('473656954581942292').setName(`⟫『 ${memberCount} USERS 』⟪`);
-    client.channels.get('473677401147179018').setName(`⟫『 ${botCount} THE BOT 』⟪`);
-});
-
-
 client.on('ready', () => {
   console.log('╔[════════════════════════════════════]╗');
   console.log('')
