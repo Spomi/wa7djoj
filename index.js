@@ -1429,15 +1429,9 @@ message.channel.sendEmbed(embed).then();
 
 
                                })
-        })
-})
-})
-        
-})
-})
 })
 
-
+}
 
 
 
