@@ -529,27 +529,39 @@ client.on('message', message => {
         message.channel.sendEmbed(embed);
     }
 });
+
+
+
+
+  const math = require('math-expression-evaluator');
+const stripIndents = require('common-tags').stripIndents;
+
 client.on('message', msg => {
-	const prefix = '+'
  if (msg.content.startsWith(prefix + 'clc')) {
     let args = msg.content.split(" ").slice(1);
         const question = args.join(' ');
     if (args.length < 1) {
-        msg.reply('Specify a equation, please.');
+        msg.reply('**من فضلك .. قم بكتابة سؤال **.');
 } else {    let answer;
     try {
         answer = math.eval(question);
     } catch (err) {
-        msg.reply(`Error: ${err}`);
+        return msg.reply(`Error: ${err}`);
     }
 
     const embed = new Discord.RichEmbed()
-    .addField("**السؤال**: ",`**${question}**`, true)
-    .addField("**الناتج**: ",`**${answer}**`, true)
+    .addField("**Question ❓ **: ",`**${question}**`, true)
+    .addField("**◾**  ",`**${answer}**`, true)
+    .setFooter("S Bot Calculator ")
     msg.channel.send(embed)
     }
 };
-});	
+});
+  
+ 
+  
+
+
 
 client.on("message", message => {             
   const prefix = '+'
@@ -589,7 +601,7 @@ let reason = message.content.split(" ").slice(2).join(" ");
 message.guild.member(user).addRole(muteRole);
 const muteembed = new Discord.RichEmbed()
 .setColor("RANDOM")
-.setAuthor(`Muted!`, user.displayAvatarURL)
+.setAuthor(`Muted!`, user.dislayAvatarURL)
 .setThumbnail(user.displayAvatarURL)
 .addField("**:busts_in_silhouette:  المستخدم**",  '**[ ' + `${user.tag}` + ' ]**',true)
 .addField("**:hammer:  تم بواسطة **", '**[ ' + `${message.author.tag}` + ' ]**',true)
