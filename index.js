@@ -64,8 +64,6 @@ client.on("message", message => {
 
 ('+rooms ' , 'لاضهار الرومات')
 
-('+clc ' , 'الالة الحسابية')
-
 ('+seravatar ' , 'لاضهار صوره السيرفر')
 
 ('roleadd ' , 'لاعطاء رتبه')
@@ -532,32 +530,6 @@ client.on('message', message => {
 });
 
 
-
-
-  const math = require('math-expression-evaluator');
-const stripIndents = require('common-tags').stripIndents;
-
-client.on('message', msg => {
- if (msg.content.startsWith(prefix + 'clc')) {
-    let args = msg.content.split(" ").slice(1);
-        const question = args.join(' ');
-    if (args.length < 1) {
-        msg.reply('**من فضلك .. قم بكتابة سؤال **.');
-} else {    let answer;
-    try {
-        answer = math.eval(question);
-    } catch (err) {
-        return msg.reply(`Error: ${err}`);
-    }
-
-    const embed = new Discord.RichEmbed()
-    .addField("**Question ❓ **: ",`**${question}**`, true)
-    .addField("**◾**  ",`**${answer}**`, true)
-    .setFooter("S Bot Calculator ")
-    msg.channel.send(embed)
-    }
-};
-});
   
  
   
