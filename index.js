@@ -84,7 +84,7 @@ client.on("message", message => {
 
 ('+removerooms' , 'لازالة جميع الرومات')
 
-('+createcolors' , 'لانشاء 137 الوان')
+('+cc' , 'لانشاء 30  الوان')
 
 ('+deletecolors' , 'لحذف جميع الوان')
 
@@ -1240,7 +1240,7 @@ const secreT = [
 
     
 client.on('message', ra3d => {
-        	var prefix = "r";
+        	var prefix = "+";
   if (ra3d.content ===  prefix + 'cc'){
               if (!ra3d.member.hasPermission('MANAGE_ROLES')) return ra3d.channel.sendMessage('`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**'); 
               ra3d.channel.send("**✅ | يتم عمل الالوان**");
