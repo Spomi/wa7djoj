@@ -469,6 +469,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('لي�
 
 });
 
+
 client.on('message', message => {
 var prefix = "+";
 
