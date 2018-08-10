@@ -74,7 +74,7 @@ client.on("message", message => {
 
 ('+Mute ' , 'لاعطاء ميوت شات مع سبب')
 
-('UnMute ' , 'لفك ميوت شات')
+('+unMute ' , 'لفك ميوت شات')
 
 ('+clear ' , 'لمسح الشات حد اقصى 200رساله') 
 
@@ -106,7 +106,7 @@ client.on("message", message => {
 
 ('+data' , 'التاريخ : " + اليوم + "-" + الشهر + "-" +السنة')
 
-('+voice' , 'كود الفويس اونلاين بشكل حلو')
+('+cvoice' , 'كود الفويس اونلاين بشكل حلو')
 
 ('خواطر' , '')
 
@@ -1242,7 +1242,95 @@ client.on('message', ra3d => {
 
  
 
+ client.on('message',async message => {
+  if(message.content.startsWith(prefix + "cvoice")) {
+  if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply('❌ **ليس لديك الصلاحيات الكافية**');
+  if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply('❌ **ليس معي الصلاحيات الكافية**');
+  message.channel.send('✅| **تم عمل الروم بنجاح**');
+  message.guild.createChannel(`Voice Online : [ ${message.guild.members.filter(m => m.voiceChannel).size} ]` , 'voice').then(c => {
+    console.log(`Voice online channel setup for guild: \n ${message.guild.name}`);
+    c.overwritePermissions(message.guild.id, {
+      CONNECT: false,
+      SPEAK: false
+    });
+    setInterval(() => {
+      c.setName(`Voice Online : [ ${message.guild.members.filter(m => m.voiceChannel).size} ]`)
+    },1000);
+  });
+  }
+});
+
+
+
+
+
+
+client.on('message', eyad => {
+  if (eyad.content.startsWith('+mute')) {
+if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
+let men = eyad.mentions.users.first()
+let mas = eyad.author
+if(!men) return eyad.channel.send('`منشن الشخص الذي تريد ان تعطيه ميوت كتابي` ');
+eyad.guild.channels.forEach(c => {
+c.overwritePermissions(men.id, {
+          SEND_MESSAGES: false
+})
+    })
+const embed = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setDescription(`**
+ <@${men.id}>
+لقد تم اعطائك ميوت كتابي
+بواسطة : <@${eyad.author.id}> **`)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
+          
+client.users.get(men.id).sendEmbed(embed)
+const Embed11 = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setAuthor(eyad.guild.name, eyad.guild.iconURL)
+.setDescription(`          <@${men.id}>
+لقد تم اعطائه الميوت الكتابي بنجاح
+بواسطة : <@${eyad.author.id}> `)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
+eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
+    }
+});
  
+ 
+
+
+
+client.on('message', eyad => {
+  if (eyad.content.startsWith('+unmute')) {
+if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
+ let men = eyad.mentions.users.first()
+ let mas = eyad.author
+ if(!men) return eyad.channel.send('`منشن الشخص الذي تريد فك الميوت عنه `');
+ eyad.guild.channels.forEach(c => {
+ c.overwritePermissions(men.id, {
+         SEND_MESSAGES: true
+         })
+    })
+const embed = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setDescription(`**
+ <@${men.id}>
+تم فك الميوت الكتابي 
+بواسطة : <@${eyad.author.id}> **`)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
+          
+client.users.get(men.id).sendEmbed(embed)
+const Embed11 = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setAuthor(eyad.guild.name, eyad.guild.iconURL)
+.setDescription(`          <@${men.id}>
+تم فك الميوت الكتابي 
+بواسطة : <@${eyad.author.id}>
+`)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
+eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
+    }
+});
   
   
   
