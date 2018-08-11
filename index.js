@@ -1333,7 +1333,7 @@ eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
 });
   
   
-  
+
  
   
 
