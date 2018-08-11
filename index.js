@@ -1342,5 +1342,4 @@ eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
 
 
 
-
 client.login(process.env.BOT_TOKEN);
