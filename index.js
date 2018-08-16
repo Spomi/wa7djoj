@@ -222,7 +222,7 @@ client.on('guildMemberAdd', member => {
     .setColor('GREEN')
     .setFooter('Golden Bot', 'https://cdn.discordapp.com/icons/390551815072251904/418fa2788d8115808951c9881ba8f190.jpg')
 
-var channel =member.guild.channels.find('name', 'welcome')
+var channel =member.guild.channels.find('name', 'log')
 if (!channel) return;
 channel.send({embed : embed});
 });
