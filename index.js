@@ -820,7 +820,7 @@ if( verifed.some(word => message.author.id.includes(word)) ) {    return message
   }
   });
   
-  
+ 
   
   client.on('messageUpdate', (message, newMessage) => {
     if (message.content === newMessage.content) return;
