@@ -1334,8 +1334,6 @@ eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
   
   
 
- 
-
 client.on('message', message => {
    if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'upclear')) {
@@ -1375,8 +1373,6 @@ msg.delete();
 })
 }
 });
- 
- 
 
 
 client.on('guildMemberAdd', eyad => {
@@ -1397,7 +1393,6 @@ client.on('guildMemberAdd', eyad => {
  
     channel.sendEmbed(embed);
   });
-
 
 client.on('guildMemberRemove', eyad => {
   let channel = eyad.guild.channels.find('name', 'log');
