@@ -1375,42 +1375,6 @@ msg.delete();
 });
 
 
-client.on('guildMemberAdd', eyad => {
-  let channel = eyad.guild.channels.find('name', 'log');
-  let memberavatar = eyad.user.avatarURL
-    if (!channel) return;
-  let embed = new Discord.RichEmbed()
-      .setColor('GREEN')
-      .setThumbnail(memberavatar)
-      .setTitle('Member joined')
-  .setTitle('Member Joined')
-      .addField('UserName : ',`${eyad}`)
-      .addField('User Id :', "**[" + `${eyad.id}` + "]**" )
-      .addField('MemberCount :',`${eyad.guild.memberCount}`)
-      .addField('Server: ', `${eyad.guild.name}`,true)                          
-      .setFooter(" Join Log ! ")
-      .setTimestamp()
- 
-    channel.sendEmbed(embed);
-  });
-
-client.on('guildMemberRemove', eyad => {
-  let channel = eyad.guild.channels.find('name', 'log');
-  let memberavatar = eyad.user.avatarURL
-    if (!channel) return;
-  let embed = new Discord.RichEmbed()
-      .setColor('RED')
-      .setThumbnail(memberavatar)
-  .setTitle('Member Left')
-      .addField('UserName : ',`${eyad}`)
-      .addField('User Id :', "**[" + `${eyad.id}` + "]**" )
-      .addField('MemberCount :',`${eyad.guild.memberCount}`)
-      .addField('Server: ', `${eyad.guild.name}`,true)                          
-      .setFooter(" Leave Log ! ")
-      .setTimestamp()
- 
-    channel.sendEmbed(embed);
-      });
 
 
 
