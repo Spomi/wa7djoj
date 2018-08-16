@@ -1424,4 +1424,9 @@ client.on('guildMemberRemove', eyad => {
 
 
 
+
+
+
+
+
 client.login(process.env.BOT_TOKEN);
