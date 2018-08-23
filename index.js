@@ -36,7 +36,7 @@ client.on('ready', function(){
         }
         i = i+j;
         client.user.setGame(setGame[i],`http://www.twitch.tv/osama_gmt`);
-    }, ms);5000
+    }, ms);1000
 
 });
 
