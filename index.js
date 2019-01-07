@@ -48,13 +48,7 @@ if (!message.channel.guild) return message.reply('**This command only for server
 const embed = new Discord.RichEmbed() 
       .setColor("#020000")
       .setDescription(`
-\`\`\`
-╭━━━╮╱╱╱╱╱╭━━╮╱╱╱╱╭╮
-╰╮╭╮┃╱╱╱╱╱┃╭╮┃╱╱╱╭╯╰╮
-╱┃┃┃┣━╮╭━━┫╰╯╰┳━━╋╮╭╯
-╱┃┃┃┃╭╮┫╭╮┃╭━╮┃╭╮┃┃┃
-╭╯╰╯┃┃┃┃╭╮┃╰━╯┃╰╯┃┃╰╮
-╰━━━┻╯╰┻╯╰┻━━━┻━━╯╰━╯
+\`\━╯╰━╯
 \`\`\`
 ⚙\`${prefix}ban\`
 ** ⇏ لاعطاء باند لشخص**
