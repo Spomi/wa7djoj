@@ -43,101 +43,58 @@ client.on('ready', function(){
 
 
 
+ if(message.content === (prefix + "help")) {
+if (!message.channel.guild) return message.reply('**This command only for servers ❌**');
+const embed = new Discord.RichEmbed() 
+      .setColor("#020000")
+      .setDescription(`
+\`\`\`
+╭━━━╮╱╱╱╱╱╭━━╮╱╱╱╱╭╮
+╰╮╭╮┃╱╱╱╱╱┃╭╮┃╱╱╱╭╯╰╮
+╱┃┃┃┣━╮╭━━┫╰╯╰┳━━╋╮╭╯
+╱┃┃┃┃╭╮┫╭╮┃╭━╮┃╭╮┃┃┃
+╭╯╰╯┃┃┃┃╭╮┃╰━╯┃╰╯┃┃╰╮
+╰━━━┻╯╰┻╯╰┻━━━┻━━╯╰━╯
+\`\`\`
+⚙\`${prefix}ban\`
+** ⇏ لاعطاء باند لشخص**
+⚙\`${prefix}kick\`
+** ⇏ لاعطاء كيك لشخص**
+⚙\`${prefix}mute\`
+** ⇏ لاعطاء ميوت لشخص**
+⚙\`${prefix}unmute\`
+** ⇏ لفك الميوت عن شخص**
+⚙\`${prefix}mutechannel\`
+** ⇏ قفل الشات بل كامل**
+⚙\`${prefix}unmutechannel\`
+** ⇏ فك القفل الشات**
+⚙\`${prefix}bc\`
+** ⇏ لارسال رساله جماعية**
+⚙\`${prefix}avatar\`
+** ⇏ لاضهار صورتك**
+⚙\`${prefix}image\`
+** ⇏ لاضهار صورة السيرفر**
+⚙\`${prefix}clear\`
+** ⇏ لمسح الرسائل**
+⚙\`${prefix}id\`
+** ⇏ لاضهار معلومات عن حسابك**
+⚙\`${prefix}server\`
+** ⇏ لاضهار معلومات السيرفر**
+⚙\`${prefix}moveall\`
+** ⇏ لسحب الجميع عندك**
+⚙\`${prefix}invite\`
+** ⇏ لاضافه البوت**
+⚙\`${prefix}ping\`
+** ⇏ معرفه سرعه البوت**
 
-client.on("message", message => {
-    if (message.content === (prefix + "help")) {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#580e6b")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`
-('+avatar ' , 'لعرض صورتك ') 
-
-('+say ' , ' يكرر كلامك ')
-
-('+roll ' , 'كود القرعة ') 
-
-('+id ' , 'لعرض معلوماتك') 
-
-('+server' , 'لمعلومات سيرفر') 
-
-('رابط السيرفر الي تكتب الاوامر بيه' ,' رابط  ')
-
-('+invite   ' ,' لاضافه البوت   ')
-
-('+roles' ,'لاضهار رتب  سيرفر بالترتيب')
-
-('+bc ' , 'لارسال رساله جماعية')
-
-('+v2min ' , 'لانشاء روم مؤقت بتأكيد')
-
-('+ping ' , 'سرعه بوت')
-
-('removeRoles+1 ' , 'لحذف جميع رتب')
-
-('+invites ' , 'لمعرفه عدد الاعضاء الذي دخلوا عبرك')
-
-('+mutechannel ' , 'لقفل الشات')
-
-('+unmutechannel ' , 'لفتح الشات')
-
-('+rooms ' , 'لاضهار الرومات')
-
-('+seravatar ' , 'لاضهار صوره السيرفر')
-
-('roleadd ' , 'لاعطاء رتبه')
-
-('+roleremove ' , 'لازاله الرتبه')
-
-('+nick  ' , 'لتغير اسم البوت')
-
-('+Mute ' , 'لاعطاء ميوت شات مع سبب')
-
-('+unMute ' , 'لفك ميوت شات')
-
-('+clear ' , 'لمسح الشات حد اقصى 200رساله') 
-
-('+seroles' , 'انشاء رتب جاهزه')
-
-('+removerooms' , 'لازالة جميع الرومات')
-
-('+cc' , 'لانشاء 140  لوان')
-
-('+uncc' , 'لحذف جميع الوان')
-
-('+watch ' , 'اسم البوت')
-
-('+hide' , 'لاخفاء جميع رومات في سسيرفر')
-     
-('prefix ', '+')
-
-('+removeroles' , 'لحذف جميع رتب')
-
-('+unhide' , 'لفتح جميع رومات')
-
-('+ban' , 'لاعطاء باند')
-
-('+unbans' , 'لفك باند عن جميع')
-
-('لاتخيار الوان الذي تريده' , 'لون')
-
-('+e' , 'You must provide some text to emojify!')
-
-('+data' , 'التاريخ : " + اليوم + "-" + الشهر + "-" +السنة')
-
-('+cvoice' , 'كود الفويس اونلاين بشكل حلو')
-
-('خواطر' , '')
-
-('+color' , '')
+`)
+        .setFooter(message.author.username, message.author.avatarURL);
+    message.author.sendEmbed(embed)
+}
 
 
-تحذير :البوت يمتلك لوق يعمل في روم يسمى log
-البوت يقوم بطرد من ينشر سيرفر تحذير`)
-     
-   message.author.sendEmbed(embed)
-   
-   }
-   }); 
+
+
 client.on('message', message => {
      if (message.content === (prefix + "help")) {
      let embed = new Discord.RichEmbed()
