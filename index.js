@@ -56,9 +56,8 @@ the bot is fixing...
    }
    });
 
- 
- كود الهلب في الشات مو الخاص
- 
+   
+
 
 
 client.on('message', message => {
