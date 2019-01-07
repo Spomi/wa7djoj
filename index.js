@@ -43,50 +43,22 @@ client.on('ready', function(){
 
 
 
- if(message.content === (prefix + "help")) {
-if (!message.channel.guild) return message.reply('**This command only for servers ❌**');
-const embed = new Discord.RichEmbed() 
-      .setColor("#020000")
+client.on("message", message => {
+    if (message.content === `${prefix}help`) {
+  const embed = new Discord.RichEmbed()
+      .setColor("#000000")
       .setDescription(`
-\`\━╯╰━╯
-\`\`\`
-⚙\`${prefix}ban\`
-** ⇏ لاعطاء باند لشخص**
-⚙\`${prefix}kick\`
-** ⇏ لاعطاء كيك لشخص**
-⚙\`${prefix}mute\`
-** ⇏ لاعطاء ميوت لشخص**
-⚙\`${prefix}unmute\`
-** ⇏ لفك الميوت عن شخص**
-⚙\`${prefix}mutechannel\`
-** ⇏ قفل الشات بل كامل**
-⚙\`${prefix}unmutechannel\`
-** ⇏ فك القفل الشات**
-⚙\`${prefix}bc\`
-** ⇏ لارسال رساله جماعية**
-⚙\`${prefix}avatar\`
-** ⇏ لاضهار صورتك**
-⚙\`${prefix}image\`
-** ⇏ لاضهار صورة السيرفر**
-⚙\`${prefix}clear\`
-** ⇏ لمسح الرسائل**
-⚙\`${prefix}id\`
-** ⇏ لاضهار معلومات عن حسابك**
-⚙\`${prefix}server\`
-** ⇏ لاضهار معلومات السيرفر**
-⚙\`${prefix}moveall\`
-** ⇏ لسحب الجميع عندك**
-⚙\`${prefix}invite\`
-** ⇏ لاضافه البوت**
-⚙\`${prefix}ping\`
-** ⇏ معرفه سرعه البوت**
+جاري التعديل على البوت لتلبية رغباتكم 
+the bot is fixing...
+ `)
+   message.channel.sendEmbed(embed)
+   
+   }
+   });
 
-`)
-        .setFooter(message.author.username, message.author.avatarURL);
-    message.author.sendEmbed(embed)
-}
-
-
+ 
+ كود الهلب في الشات مو الخاص
+ 
 
 
 client.on('message', message => {
